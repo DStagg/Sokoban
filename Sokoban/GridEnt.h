@@ -12,6 +12,9 @@ public:
 	void		Update(float dt);
 	void		Draw(sf::RenderWindow* rw);
 
+	bool		Move(int dx, int dy);
+	bool		MoveTo(int x, int y);
+
 	PairInt&	GetGridPos();
 
 private:

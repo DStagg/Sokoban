@@ -50,16 +50,16 @@ void SokobanScene::Update(float dt)
 				GetManager()->Quit();
 				break;
 			case sf::Keyboard::Up:
-				_Level.GetPlayer()->GetGridPos()._Y--;
+				_Level.GetPlayer()->Move(0, -1);
 				break;
 			case sf::Keyboard::Down:
-				_Level.GetPlayer()->GetGridPos()._Y++;
+				_Level.GetPlayer()->Move(0, 1);
 				break;
 			case sf::Keyboard::Left:
-				_Level.GetPlayer()->GetGridPos()._X--;
+				_Level.GetPlayer()->Move(-1, 0);
 				break;
 			case sf::Keyboard::Right:
-				_Level.GetPlayer()->GetGridPos()._X++;
+				_Level.GetPlayer()->Move(1, 0);
 				break;
 			default:
 				break;

@@ -19,6 +19,28 @@ void GridEnt::Draw(sf::RenderWindow* rw)
 	rw->draw(*GetGraphic().GetSprPntr());
 };
 
+bool GridEnt::Move(int dx, int dy)
+{
+	return MoveTo( GetGridPos()._X + dx, GetGridPos()._Y + dy);
+};
+bool GridEnt::MoveTo(int x, int y)
+{
+	if (x < 0)
+		x = 0;
+	if (y < 0)
+		y = 0;
+	if (x >= GetLevel()->GetTileGrid().GetWidth())
+		x = GetLevel()->GetTileGrid().GetWidth() - 1;
+	if (y >= GetLevel()->GetTileGrid().GetHeight())
+		y = GetLevel()->GetTileGrid().GetHeight() - 1;
+
+	if (GetLevel()->GetTile(x, y)._Solid)
+		return false;
+	
+	GetGridPos().Set(x, y);
+	return true;
+};
+
 PairInt& GridEnt::GetGridPos()
 {
 	return _GridPos;
