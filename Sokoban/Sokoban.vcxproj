@@ -18,6 +18,42 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AABB.cpp" />
+    <ClCompile Include="AudioService.cpp" />
+    <ClCompile Include="BinaryFile.cpp" />
+    <ClCompile Include="BinarySave.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="EntityComponents.cpp" />
+    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="ImageManager.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MenuList.cpp" />
+    <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Service.cpp" />
+    <ClCompile Include="SokobanScene.cpp" />
+    <ClCompile Include="Utility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AABB.h" />
+    <ClInclude Include="AudioService.h" />
+    <ClInclude Include="BinaryFile.h" />
+    <ClInclude Include="BinarySave.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityComponents.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="ImageManager.h" />
+    <ClInclude Include="MenuList.h" />
+    <ClInclude Include="Random.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="Service.h" />
+    <ClInclude Include="SokobanScene.h" />
+    <ClInclude Include="Utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ToDo.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{69A9F25E-8005-4A47-8C03-D5C6B6309134}</ProjectGuid>
     <RootNamespace>Sokoban</RootNamespace>
@@ -117,17 +153,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="TTTScene.cpp" />
-    <ClCompile Include="Utility.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="TTTScene.h" />
-    <ClInclude Include="Utility.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
