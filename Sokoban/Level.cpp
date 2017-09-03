@@ -30,6 +30,32 @@ Tile Level::GetTile(int x, int y)
 	return GetTile(GetTileID(x, y));
 };
 
+sf::Texture& Level::GetMapTexture()
+{
+	return _MapTexture;
+};
+
+void Level::RefreshMapTexture(sf::Texture* tilesheet)
+{
+	sf::Image img;
+	img.create(_TileWidth * GetTileGrid().GetWidth(), _TileHeight * GetTileGrid().GetHeight());
+	sf::Image source = tilesheet->copyToImage();
+
+	for (int x = 0; x < GetTileGrid().GetWidth(); x++)
+	{
+		for (int y = 0; y < GetTileGrid().GetHeight(); y++)
+		{
+			Tile tile = GetTile(x, y);
+			img.copy(source, x * _TileWidth, y * _TileHeight, sf::IntRect(tile._SheetColumn * _TileWidth, tile._SheetRow * _TileHeight, _TileWidth, _TileHeight));
+		}
+	}
+
+	_MapTexture.loadFromImage(img);
+};
+
+
+
+
 void Level::GenBoxMap(int w, int h)
 {
 	GetTileList().clear();
