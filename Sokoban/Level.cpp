@@ -9,6 +9,15 @@ Level::~Level()
 
 };
 
+void Level::SetPlayer(GridEnt* ge)
+{
+	_Player = ge;
+};
+GridEnt* Level::GetPlayer()
+{
+	return _Player;
+};
+
 Grid& Level::GetTileGrid()
 {
 	return _TileGrid;
@@ -30,6 +39,11 @@ Tile Level::GetTile(int x, int y)
 	return GetTile(GetTileID(x, y));
 };
 
+PairInt& Level::GetTileSize()
+{
+	return _TileSize;
+};
+
 sf::Texture& Level::GetMapTexture()
 {
 	return _MapTexture;
@@ -38,7 +52,7 @@ sf::Texture& Level::GetMapTexture()
 void Level::RefreshMapTexture(sf::Texture* tilesheet)
 {
 	sf::Image img;
-	img.create(_TileWidth * GetTileGrid().GetWidth(), _TileHeight * GetTileGrid().GetHeight());
+	img.create(GetTileSize()._X * GetTileGrid().GetWidth(), GetTileSize()._Y * GetTileGrid().GetHeight());
 	sf::Image source = tilesheet->copyToImage();
 
 	for (int x = 0; x < GetTileGrid().GetWidth(); x++)
@@ -46,7 +60,7 @@ void Level::RefreshMapTexture(sf::Texture* tilesheet)
 		for (int y = 0; y < GetTileGrid().GetHeight(); y++)
 		{
 			Tile tile = GetTile(x, y);
-			img.copy(source, x * _TileWidth, y * _TileHeight, sf::IntRect(tile._SheetColumn * _TileWidth, tile._SheetRow * _TileHeight, _TileWidth, _TileHeight));
+			img.copy(source, x * GetTileSize()._X, y * GetTileSize()._Y, sf::IntRect(tile._SheetColumn * GetTileSize()._X, tile._SheetRow * GetTileSize()._Y, GetTileSize()._X, GetTileSize()._Y));
 		}
 	}
 

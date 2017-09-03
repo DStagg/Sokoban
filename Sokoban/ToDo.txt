@@ -1,5 +1,3 @@
-Render the map to a texture rather than drawing it anew once per frame
-Save/load map
 Add player to map
 Move player around map
 Collide player with walls

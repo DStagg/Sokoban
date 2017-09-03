@@ -1,19 +1,5 @@
 #include "EntityComponents.h"
 
-//	PairFloat	//
-PairFloat::PairFloat(float x, float y)
-{
-	Set(x, y);
-};
-
-void PairFloat::Set(float x, float y)
-{
-	_X = x;
-	_Y = y;
-};
-//////////////////
-
-
 //	Graphic
 
 Graphic::Graphic()
