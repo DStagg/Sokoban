@@ -18,6 +18,15 @@ GridEnt* Level::GetPlayer()
 	return _Player;
 };
 
+void Level::SetBlock(GridEnt* ge)
+{
+	_Block = ge;
+};
+GridEnt* Level::GetBlock()
+{
+	return _Block;
+};
+
 Grid& Level::GetTileGrid()
 {
 	return _TileGrid;

@@ -9,8 +9,8 @@ public:
 
 	GridEnt(Level* lvl);
 
-	void		Update(float dt);
-	void		Draw(sf::RenderWindow* rw);
+	virtual void		Update(float dt);
+	virtual void		Draw(sf::RenderWindow* rw);
 
 	bool		Move(int dx, int dy);
 	bool		MoveTo(int x, int y);

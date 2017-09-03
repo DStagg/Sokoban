@@ -13,6 +13,7 @@ void SokobanScene::Begin()
 {
 	_ImgMan.LoadTextureFromFile("Tilesheet", "Tilesheet.png");
 	_ImgMan.LoadTextureFromFile("Player", "Player.png");
+	_ImgMan.LoadTextureFromFile("Block", "Block.png");
 
 	_Level.GenBoxMap(12, 12);
 	_Level.RefreshMapTexture(_ImgMan.GetTexturePntr("Tilesheet"));
@@ -20,6 +21,10 @@ void SokobanScene::Begin()
 	_Level.SetPlayer(new GridEnt(&_Level));
 	_Level.GetPlayer()->GetGraphic().SetSprite(sf::Sprite(*_ImgMan.GetTexturePntr("Player")));
 	_Level.GetPlayer()->GetGridPos().Set(1, 1);
+
+	_Level.SetBlock(new GridEnt(&_Level));
+	_Level.GetBlock()->GetGraphic().SetSprite(sf::Sprite(*_ImgMan.GetTexturePntr("Block")));
+	_Level.GetBlock()->GetGridPos().Set(2, 2);
 };
 void SokobanScene::End()
 {
@@ -70,6 +75,9 @@ void SokobanScene::Update(float dt)
 
 	if (_Level.GetPlayer() != 0 )
 		_Level.GetPlayer()->Update(dt);
+
+	if (_Level.GetBlock() != 0)
+		_Level.GetBlock()->Update(dt);
 };
 
 void SokobanScene::DrawScreen()
@@ -79,4 +87,7 @@ void SokobanScene::DrawScreen()
 
 	if (_Level.GetPlayer() != 0)
 		_Level.GetPlayer()->Draw(_Window);
+
+	if (_Level.GetBlock() != 0)
+		_Level.GetBlock()->Draw(_Window);
 };

@@ -16,6 +16,9 @@ public:
 	void				SetPlayer(GridEnt* ge);
 	GridEnt*			GetPlayer();
 
+	void				SetBlock(GridEnt* ge);
+	GridEnt*			GetBlock();
+
 	Grid&				GetTileGrid();
 	std::vector<Tile>&	GetTileList();
 	int					GetTileID(int x, int y);
@@ -32,6 +35,7 @@ public:
 private:
 
 	GridEnt*			_Player;
+	GridEnt*			_Block;
 
 	Grid				_TileGrid;
 	std::vector<Tile>	_TileList;

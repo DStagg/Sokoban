@@ -1,5 +1,3 @@
-Collide player with walls
-Add block to map
 Collide player with block
 Move block around map by pushing
 Add switches
