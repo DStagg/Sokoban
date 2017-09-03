@@ -71,6 +71,9 @@
     <ClCompile Include="SokobanScene.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryFile.h">
@@ -117,6 +120,12 @@
     </ClInclude>
     <ClInclude Include="SFMLScene.h">
       <Filter>Core\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

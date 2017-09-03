@@ -2,6 +2,8 @@
 #define SOKOBANSCENE_H
 
 #include "SFMLScene.h"
+#include "ImageManager.h"
+#include "Level.h"
 
 class SokobanScene : public SFMLScene
 {
@@ -19,7 +21,8 @@ public:
 	
 private:
 
-
+	Level _Level;
+	ImageManager _ImgMan;
 };
 
 #endif
