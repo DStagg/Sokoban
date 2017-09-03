@@ -5,7 +5,6 @@
 #include <algorithm>
 
 #include "AABB.h"
-#include "Icon.h"
 
 #include "EntityComponents.h"
 
@@ -18,8 +17,10 @@ public:
 	Entity(Level* lvl);
 	~Entity();
 
-	Presence& GetPresence();
-	Size& GetSize();
+	PairFloat& GetPosition();
+	PairFloat& GetVelocity();
+	PairFloat& GetSize();
+
 	Graphic& GetGraphic();
 	Stats& GetStats();
 
@@ -36,8 +37,10 @@ private:
 
 	bool _Alive;
 
-	Presence _Presence;
-	Size _Size;
+	PairFloat	_Position;
+	PairFloat	_Velocity;
+	PairFloat	_Size;
+
 	Stats _Stats;
 	Graphic _Graphic;
 	
@@ -52,8 +55,6 @@ public:
 
 	void Update(float dt);
 	void Draw(sf::RenderWindow* rw);
-
-private:
 
 };
 

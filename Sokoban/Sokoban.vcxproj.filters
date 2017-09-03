@@ -115,6 +115,9 @@
     <ClInclude Include="SokobanScene.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="SFMLScene.h">
+      <Filter>Core\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ToDo.txt" />

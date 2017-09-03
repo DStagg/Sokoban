@@ -48,6 +48,7 @@
     <ClInclude Include="Random.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Service.h" />
+    <ClInclude Include="SFMLScene.h" />
     <ClInclude Include="SokobanScene.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>

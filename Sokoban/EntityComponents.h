@@ -4,52 +4,18 @@
 #include "SFML\Graphics.hpp"
 #include "ImageManager.h"
 
-class Size
+class PairFloat
 {
 public:
 
-	Size(float w = 1.f, float h = 1.f);
-	
-	void SetWidth(float w);
-	void SetHeight(float h);
-	void SetSize(float w, float h);
+	PairFloat(float x = 0.f, float y = 0.f);
 
-	float GetWidth();
-	float GetHeight();
+	void Set(float x, float y);
 
-private:
-
-	float _Width;
-	float _Height;
+	float _X;
+	float _Y;
 };
 
-class Presence
-{
-public:
-
-	Presence(float x = 0.f, float y = 0.f, float xv = 0.f, float yv = 0.f);
-
-	void SetX(float x);
-	void SetY(float y);
-	void SetPosition(float x, float y);
-
-	void SetXVel(float xv);
-	void SetYVel(float yv);
-	void SetVelocity(float xv, float yv);
-
-	float GetX();
-	float GetY();
-
-	float GetXVel();
-	float GetYVel();
-
-	void UpdatePosition(float dt);
-
-private:
-	
-	float _X, _Y;
-	float _XVel, _YVel;
-};
 
 class Graphic
 {

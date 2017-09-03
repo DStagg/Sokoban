@@ -1,6 +1,6 @@
 #include "SokobanScene.h"
 
-SokobanScene::SokobanScene()
+SokobanScene::SokobanScene(sf::RenderWindow* rw) : SFMLScene(rw)
 {
 
 };

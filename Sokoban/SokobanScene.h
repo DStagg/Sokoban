@@ -1,13 +1,13 @@
 #ifndef SOKOBANSCENE_H
 #define SOKOBANSCENE_H
 
-#include "Scene.h"
+#include "SFMLScene.h"
 
-class SokobanScene : public Scene
+class SokobanScene : public SFMLScene
 {
 public:
 
-	SokobanScene();
+	SokobanScene(sf::RenderWindow* rw);
 	~SokobanScene();
 
 	void Begin();

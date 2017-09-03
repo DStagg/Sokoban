@@ -4,21 +4,26 @@ Entity::Entity(Level* lvl)
 {
 	SetAlive(true);
 	SetLevel(lvl);
-}
+};
 Entity::~Entity()
 {
 
 };
 
-Presence& Entity::GetPresence()
+//	Components	//
+PairFloat& Entity::GetPosition()
 {
-	return _Presence;
+	return _Position;
 };
-
-Size& Entity::GetSize()
+PairFloat& Entity::GetVelocity()
+{
+	return _Velocity;
+};
+PairFloat& Entity::GetSize()
 {
 	return _Size;
 };
+//////////////////
 
 Graphic& Entity::GetGraphic()
 {
@@ -60,14 +65,15 @@ BasicEnt::BasicEnt(Level* lvl) : Entity(lvl)
 
 void BasicEnt::Update(float dt)
 {
-	GetPresence().UpdatePosition(dt);
+	GetPosition()._X = GetPosition()._X + (dt * GetVelocity()._X);
+	GetPosition()._Y = GetPosition()._Y + (dt * GetVelocity()._Y);
 	GetGraphic().Play(dt);
-	GetSize().SetSize((float)GetGraphic().GetCurrentFrame()._Width, (float)GetGraphic().GetCurrentFrame()._Height);
+	GetSize().Set((float)GetGraphic().GetCurrentFrame()._Width, (float)GetGraphic().GetCurrentFrame()._Height);
 };
 
 void BasicEnt::Draw(sf::RenderWindow* rw)
 {
-	GetGraphic().GetSprPntr()->setPosition(GetPresence().GetX(), GetPresence().GetY());
+	GetGraphic().GetSprPntr()->setPosition(GetPosition()._X , GetPosition()._Y);
 	rw->draw(*GetGraphic().GetSprPntr());
 };
 
@@ -90,7 +96,7 @@ void SFXEnt::Update(float dt)
 
 AABB GenBoundBox(Entity* ent)
 {
-	return AABB(ent->GetPresence().GetX(), ent->GetPresence().GetY(), ent->GetSize().GetWidth(), ent->GetSize().GetHeight());
+	return AABB(ent->GetPosition()._X, ent->GetPosition()._Y, ent->GetSize()._X, ent->GetSize()._Y);
 };
 
 /////
