@@ -4,6 +4,7 @@
 #include "SFMLScene.h"
 #include "ImageManager.h"
 #include "Level.h"
+#include "GameEnts.h"
 
 class SokobanScene : public SFMLScene
 {

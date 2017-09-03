@@ -25,6 +25,7 @@
     <ClCompile Include="BinarySave.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityComponents.cpp" />
+    <ClCompile Include="GameEnts.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GridEnt.cpp" />
     <ClCompile Include="ImageManager.cpp" />
@@ -44,6 +45,7 @@
     <ClInclude Include="BinarySave.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityComponents.h" />
+    <ClInclude Include="GameEnts.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridEnt.h" />
     <ClInclude Include="ImageManager.h" />

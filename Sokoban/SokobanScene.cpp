@@ -18,7 +18,8 @@ void SokobanScene::Begin()
 	_Level.GenBoxMap(12, 12);
 	_Level.RefreshMapTexture(_ImgMan.GetTexturePntr("Tilesheet"));
 
-	_Level.SetPlayer(new GridEnt(&_Level));
+	//_Level.SetPlayer(new GridEnt(&_Level));
+	_Level.SetPlayer(new PlayerEnt(&_Level));
 	_Level.GetPlayer()->GetGraphic().SetSprite(sf::Sprite(*_ImgMan.GetTexturePntr("Player")));
 	_Level.GetPlayer()->GetGridPos().Set(1, 1);
 
@@ -53,18 +54,6 @@ void SokobanScene::Update(float dt)
 			{
 			case sf::Keyboard::Escape:
 				GetManager()->Quit();
-				break;
-			case sf::Keyboard::Up:
-				_Level.GetPlayer()->Move(0, -1);
-				break;
-			case sf::Keyboard::Down:
-				_Level.GetPlayer()->Move(0, 1);
-				break;
-			case sf::Keyboard::Left:
-				_Level.GetPlayer()->Move(-1, 0);
-				break;
-			case sf::Keyboard::Right:
-				_Level.GetPlayer()->Move(1, 0);
 				break;
 			default:
 				break;

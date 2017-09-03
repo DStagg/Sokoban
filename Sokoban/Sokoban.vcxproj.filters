@@ -77,6 +77,9 @@
     <ClCompile Include="GridEnt.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="GameEnts.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryFile.h">
@@ -131,6 +134,9 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="GridEnt.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEnts.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
