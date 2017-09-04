@@ -24,6 +24,9 @@
     <Filter Include="Core\Services">
       <UniqueIdentifier>{0ce58b7d-1e62-4087-adbe-8fcd46c6f838}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\GUI">
+      <UniqueIdentifier>{8d0647db-f501-46f6-b4df-3f339842ebd2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinaryFile.cpp">
@@ -79,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="GameEnts.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI.cpp">
+      <Filter>Game\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +144,12 @@
     </ClInclude>
     <ClInclude Include="GameEnts.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.h">
+      <Filter>Game\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Pair.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

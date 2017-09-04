@@ -26,6 +26,13 @@ void SokobanScene::Begin()
 	_Level.SetBlock(new GridEnt(&_Level));
 	_Level.GetBlock()->GetGraphic().SetSprite(sf::Sprite(*_ImgMan.GetTexturePntr("Block")));
 	_Level.GetBlock()->GetGridPos().Set(2, 2);
+
+
+	//	GUI Stuff
+	sf::Font f;
+	f.loadFromFile("Roboto-Regular.ttf");
+	GUI::RegisterFont(f);
+	GUI::RegisterWindow(_Window);
 };
 void SokobanScene::End()
 {
@@ -79,4 +86,6 @@ void SokobanScene::DrawScreen()
 
 	if (_Level.GetBlock() != 0)
 		_Level.GetBlock()->Draw(_Window);
+
+	GUI::DoButton(0, PairInt(500, 100), PairInt(100, 50), "Test Button");
 };
