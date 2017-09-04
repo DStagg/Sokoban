@@ -33,13 +33,15 @@ public:
 	static bool DoButton(int id, PairInt pos, PairInt size, std::string label);
 	static void DoFrame(int id, PairInt pos, PairInt size, sf::Color col);
 	
-	static PairInt& GetSize();		//	Return reference to size of screen in pixels
+	static void Draw();
+
+	static PairInt& GetSize();		
 	static sf::RenderTexture& GetTargetTexture();
 	static GUIState& GetState();
 
 private:
 
-	static PairInt _Size;			//	Store size of screen in pixels
+	static PairInt _Size;			
 	static sf::RenderWindow* _Window;
 	static sf::Font _Font;
 	static sf::RenderTexture _TargetTexture;

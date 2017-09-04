@@ -26,7 +26,7 @@ private:
 
 	Level _Level;
 	ImageManager _ImgMan;
-	GUIState state;
+
 };
 
 #endif

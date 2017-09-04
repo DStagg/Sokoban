@@ -1,5 +1,3 @@
-Collide player with block
-Move block around map by pushing
 Add switches
 Add doors
 Open doors with switches

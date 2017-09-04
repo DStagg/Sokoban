@@ -3,7 +3,6 @@
 #include "Scene.h"
 #include "SokobanScene.h"
 
-
 int main()
 {
 	int FramesPerSecond = 60;

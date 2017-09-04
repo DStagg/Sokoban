@@ -96,6 +96,13 @@ void GUI::DoFrame(int id, PairInt pos, PairInt size, sf::Color col)
 	GetTargetTexture().draw(Rect);
 };
 
+void GUI::Draw()
+{
+	_TargetTexture.display();
+	sf::Sprite Spr(_TargetTexture.getTexture());
+	_Window->draw(Spr);
+};
+
 PairInt& GUI::GetSize()
 {
 	return _Size;

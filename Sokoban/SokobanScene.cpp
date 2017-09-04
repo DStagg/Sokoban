@@ -29,8 +29,8 @@ void SokobanScene::Begin()
 
 
 	//	GUI Stuff
-	sf::Font f;
-	f.loadFromFile("Roboto-Regular.ttf");
+	sf::Font font;
+	font.loadFromFile("Roboto-Regular.ttf");
 	GUI::RegisterFont(f);
 	GUI::RegisterWindow(_Window);
 };
@@ -87,11 +87,8 @@ void SokobanScene::Update(float dt)
 
 	};
 
-	GUI::DoFrame(GenID, PairInt(475, 75), PairInt(150, 150), sf::Color::White);
-	if (GUI::DoButton(GenID, PairInt(500, 100), PairInt(100, 50), "1,1"))
-		_Level.GetPlayer()->GetGridPos().Set(1, 1);
-	if (GUI::DoButton(GenID, PairInt(500, 160), PairInt(100, 50), "10,10"))
-		_Level.GetPlayer()->GetGridPos().Set(10, 10);
+	if (GUI::DoButton(GenID, PairInt(500, 0), PairInt(50, 50), "..."))
+		std::cout << "GUI Test" << std::endl;
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return))
 	{
@@ -108,7 +105,6 @@ void SokobanScene::Update(float dt)
 	if (_Level.GetBlock() != 0)
 		_Level.GetBlock()->Update(dt);
 
-	state = GUI::GetState();
 	GUI::EndFrame();
 };
 
@@ -123,14 +119,5 @@ void SokobanScene::DrawScreen()
 	if (_Level.GetBlock() != 0)
 		_Level.GetBlock()->Draw(_Window);
 
-	/*
-	system("cls");
-	std::cout << "Hot: " << state._HotItem << std::endl;
-	std::cout << "Active: " << state._ActiveItem << std::endl;
-	std::cout << "Mouse: " << state._MouseX << "," << state._MouseY << std::endl;
-	std::cout << "MouseDown:" << state._MouseDown << std::endl;
-	*/
-
-	GUI::GetTargetTexture().display();
-	_Window->draw(sf::Sprite(GUI::GetTargetTexture().getTexture()));
+	GUI::Draw();
 };
