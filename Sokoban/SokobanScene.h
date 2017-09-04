@@ -6,6 +6,7 @@
 #include "Level.h"
 #include "GameEnts.h"
 #include "GUI.h"
+#include <iostream>
 
 class SokobanScene : public SFMLScene
 {
@@ -25,6 +26,7 @@ private:
 
 	Level _Level;
 	ImageManager _ImgMan;
+	GUIState state;
 };
 
 #endif

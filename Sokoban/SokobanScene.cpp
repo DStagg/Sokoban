@@ -50,17 +50,35 @@ void SokobanScene::Resume()
 
 void SokobanScene::Update(float dt)
 {
+	GUI::StartFrame();
+
 	sf::Event Event;
 	while (_Window->pollEvent(Event))
 	{
 		if (Event.type == sf::Event::Closed)
 			GetManager()->Quit();
+		else if (Event.type == sf::Event::MouseMoved)
+		{
+			GUI::GetState()._MouseX = sf::Mouse::getPosition(*_Window).x;
+			GUI::GetState()._MouseY = sf::Mouse::getPosition(*_Window).y;
+		}
+		else if ((Event.type == sf::Event::MouseButtonPressed) && (Event.mouseButton.button == sf::Mouse::Left))
+		{
+			GUI::GetState()._MouseDown = true;
+		}
+		else if ((Event.type == sf::Event::MouseButtonReleased) && (Event.mouseButton.button == sf::Mouse::Left))
+		{
+			GUI::GetState()._MouseDown = false;
+		}
 		else if (Event.type == sf::Event::KeyPressed)
 		{
 			switch (Event.key.code)
 			{
 			case sf::Keyboard::Escape:
 				GetManager()->Quit();
+				break;
+			case sf::Keyboard::Return:
+				
 				break;
 			default:
 				break;
@@ -69,11 +87,28 @@ void SokobanScene::Update(float dt)
 
 	};
 
+	if (GUI::DoButton(100, PairInt(500, 100), PairInt(100, 50), "1,1"))
+		_Level.GetPlayer()->GetGridPos().Set(1, 1);
+	if (GUI::DoButton(200, PairInt(500, 160), PairInt(100, 50), "10,10"))
+		_Level.GetPlayer()->GetGridPos().Set(10, 10);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return))
+	{
+		std::cout << "GUI State:" << std::endl << "----------" << std::endl;
+		std::cout << "Hot: " << GUI::GetState()._HotItem << std::endl;
+		std::cout << "Active: " << GUI::GetState()._ActiveItem << std::endl;
+		std::cout << "Mouse: " << GUI::GetState()._MouseX << "," << GUI::GetState()._MouseY << std::endl;
+		std::cout << "MouseDown: " << GUI::GetState()._MouseDown << std::endl << std::endl;
+	}
+
 	if (_Level.GetPlayer() != 0 )
 		_Level.GetPlayer()->Update(dt);
 
 	if (_Level.GetBlock() != 0)
 		_Level.GetBlock()->Update(dt);
+
+	state = GUI::GetState();
+	GUI::EndFrame();
 };
 
 void SokobanScene::DrawScreen()
@@ -87,5 +122,14 @@ void SokobanScene::DrawScreen()
 	if (_Level.GetBlock() != 0)
 		_Level.GetBlock()->Draw(_Window);
 
-	GUI::DoButton(0, PairInt(500, 100), PairInt(100, 50), "Test Button");
+	/*
+	system("cls");
+	std::cout << "Hot: " << state._HotItem << std::endl;
+	std::cout << "Active: " << state._ActiveItem << std::endl;
+	std::cout << "Mouse: " << state._MouseX << "," << state._MouseY << std::endl;
+	std::cout << "MouseDown:" << state._MouseDown << std::endl;
+	*/
+
+	GUI::GetTargetTexture().display();
+	_Window->draw(sf::Sprite(GUI::GetTargetTexture().getTexture()));
 };
