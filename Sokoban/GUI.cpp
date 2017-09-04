@@ -87,6 +87,15 @@ bool GUI::DoButton(int id, PairInt pos, PairInt size, std::string message)
 	return false;
 };
 
+void GUI::DoFrame(int id, PairInt pos, PairInt size, sf::Color col)
+{
+	sf::RectangleShape Rect;
+	Rect.setPosition((float)pos._X, (float)pos._Y);
+	Rect.setSize(sf::Vector2f((float)size._X, (float)size._Y));
+	Rect.setFillColor(col);
+	GetTargetTexture().draw(Rect);
+};
+
 PairInt& GUI::GetSize()
 {
 	return _Size;

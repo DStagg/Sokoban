@@ -87,6 +87,7 @@ void SokobanScene::Update(float dt)
 
 	};
 
+	GUI::DoFrame(GenID, PairInt(475, 75), PairInt(150, 150), sf::Color::White);
 	if (GUI::DoButton(GenID, PairInt(500, 100), PairInt(100, 50), "1,1"))
 		_Level.GetPlayer()->GetGridPos().Set(1, 1);
 	if (GUI::DoButton(GenID, PairInt(500, 160), PairInt(100, 50), "10,10"))

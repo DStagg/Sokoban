@@ -31,6 +31,7 @@ public:
 	static void EndFrame();
 
 	static bool DoButton(int id, PairInt pos, PairInt size, std::string label);
+	static void DoFrame(int id, PairInt pos, PairInt size, sf::Color col);
 	
 	static PairInt& GetSize();		//	Return reference to size of screen in pixels
 	static sf::RenderTexture& GetTargetTexture();
