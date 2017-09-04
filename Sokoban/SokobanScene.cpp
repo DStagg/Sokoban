@@ -87,9 +87,9 @@ void SokobanScene::Update(float dt)
 
 	};
 
-	if (GUI::DoButton(100, PairInt(500, 100), PairInt(100, 50), "1,1"))
+	if (GUI::DoButton(GenID, PairInt(500, 100), PairInt(100, 50), "1,1"))
 		_Level.GetPlayer()->GetGridPos().Set(1, 1);
-	if (GUI::DoButton(200, PairInt(500, 160), PairInt(100, 50), "10,10"))
+	if (GUI::DoButton(GenID, PairInt(500, 160), PairInt(100, 50), "10,10"))
 		_Level.GetPlayer()->GetGridPos().Set(10, 10);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return))

@@ -76,7 +76,7 @@ bool GUI::DoButton(int id, PairInt pos, PairInt size, std::string message)
 	GetTargetTexture().draw(rect);
 
 	sf::Text text(message, _Font);
-	text.setPosition(pos._X, pos._Y);
+	text.setPosition((float)pos._X, (float)pos._Y);
 	text.setScale(0.5f, 0.5f);
 	GetTargetTexture().draw(text);
 

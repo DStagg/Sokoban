@@ -1,6 +1,8 @@
 #ifndef GUI_H
 #define GUI_H
 
+#define GenID (__LINE__)
+
 #include "Pair.h"
 #include <string>
 #include "SFML\Graphics.hpp"
