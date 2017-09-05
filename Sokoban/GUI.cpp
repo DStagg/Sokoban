@@ -90,7 +90,9 @@ bool GUI::DoButton(int id, PairInt pos, PairInt size, std::string message)
 void GUI::DoSlider(int id, PairInt pos, PairInt size, float& value, float max)
 {
 	//	Check for mouse interaction
-	if (MouseInRect(pos, size))
+	PairInt testPos(pos._X, pos._Y - (size._X / 2));	//	Allows you to drag circle even from outside of the scroller
+	PairInt testSize(size._X, size._Y + size._X);		//	Delete these two lines and just test pos and size to revert
+	if (MouseInRect(testPos, testSize))
 	{
 		GUI::GetState()._HotItem = id;
 		if ((GUI::GetState()._ActiveItem == 0) && (GUI::GetState()._MouseDown))
@@ -110,17 +112,26 @@ void GUI::DoSlider(int id, PairInt pos, PairInt size, float& value, float max)
 
 	int yPos = (size._Y * value) / max;
 
-	sf::RectangleShape background;
-	background.setSize(sf::Vector2f(size._X, size._Y));
-	background.setPosition(pos._X, pos._Y);
-	background.setFillColor(sf::Color(100, 100, 100));
-	GUI::GetTargetTexture().draw(background);
-
 	sf::RectangleShape bar;
-	bar.setSize(sf::Vector2f(size._X * 0.75f, size._X));
-	bar.setPosition(pos._X + (0.125f * size._X), (pos._Y + yPos) - (size._X / 2.f));
-	bar.setFillColor(sf::Color(200, 200, 200));
+	bar.setPosition(pos._X, pos._Y);
+	bar.setSize(sf::Vector2f((float)size._X, 1.f));
+	bar.setFillColor(sf::Color::White);
 	GUI::GetTargetTexture().draw(bar);
+
+	bar.setPosition(sf::Vector2f(pos._X, pos._Y + size._Y));
+	GUI::GetTargetTexture().draw(bar);
+
+	bar.setPosition(pos._X + (size._X / 2), pos._Y);
+	bar.setSize(sf::Vector2f(1.f, size._Y));
+	GUI::GetTargetTexture().draw(bar);
+
+	sf::CircleShape point;
+	point.setRadius(size._X / 2);
+	point.setPosition(pos._X , pos._Y + yPos - (size._X / 2));
+	point.setFillColor(sf::Color(0, 0, 0, 0));
+	point.setOutlineColor(sf::Color::White);
+	point.setOutlineThickness(1);
+	GUI::GetTargetTexture().draw(point);
 
 };
 

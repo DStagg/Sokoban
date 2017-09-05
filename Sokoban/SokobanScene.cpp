@@ -88,10 +88,10 @@ void SokobanScene::Update(float dt)
 
 	};
 
-	if (GUI::DoButton(GenID, PairInt(500, 0), PairInt(50, 50), "..."))
+	if (GUI::DoButton(GenID, PairInt(500, 50), PairInt(50, 50), "..."))
 		std::cout << "GUI Test: " << _TestInt << std::endl;
 
-	GUI::DoSlider(GenID, PairInt(50, 50), PairInt(50, 300), _TestInt, 125);
+	GUI::DoSlider(GenID, PairInt(400, 50), PairInt(50, 300), _TestInt, 125);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return))
 	{
