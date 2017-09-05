@@ -20,12 +20,29 @@ struct GUIState
 	bool _MouseDown;
 };
 
+class GUIStyle
+{
+public:
+
+	virtual void DrawButton(sf::RenderTexture& target, PairInt pos, PairInt size, std::string label) = 0;
+	virtual void DrawFrame(sf::RenderTexture& target, PairInt pos, PairInt size) = 0;
+	virtual void DrawSlider(sf::RenderTexture& target, PairInt pos, PairInt size, float& value, float max) = 0;
+};
+
+class BasicGUIStyle : public GUIStyle
+{
+	void DrawButton(sf::RenderTexture& target, PairInt pos, PairInt size, std::string label);
+	void DrawFrame(sf::RenderTexture& target, PairInt pos, PairInt size);
+	void DrawSlider(sf::RenderTexture& target, PairInt pos, PairInt size, float& value, float max);
+};
+
 class GUI
 {
 public:
 
 	static void RegisterWindow(sf::RenderWindow* rw);
 	static void RegisterFont(sf::Font f);
+	static void RegisterStyle(GUIStyle* style);
 
 	static void StartFrame();
 	static void EndFrame();
@@ -39,9 +56,11 @@ public:
 	static PairInt& GetSize();		
 	static sf::RenderTexture& GetTargetTexture();
 	static GUIState& GetState();
+	static GUIStyle* GetStyle();
 
 private:
 
+	static GUIStyle* _Style;
 	static PairInt _Size;			
 	static sf::RenderWindow* _Window;
 	static sf::Font _Font;
