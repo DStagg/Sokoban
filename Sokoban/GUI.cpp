@@ -46,7 +46,7 @@ void GUI::EndFrame()
 bool GUI::DoButton(int id, PairInt pos, PairInt size, std::string message)
 {
 	//	Check if hot & active
-	if ((GUI::GetState()._MouseX >= pos._X) && (GUI::GetState()._MouseY >= pos._Y) && (GUI::GetState()._MouseX < pos._X + size._X) && (GUI::GetState()._MouseY < pos._Y + size._Y))
+	if (MouseInRect(pos,size))
 	{
 		GUI::GetState()._HotItem = id;
 		if ((GUI::GetState()._ActiveItem == 0) && (GUI::GetState()._MouseDown))
@@ -87,6 +87,43 @@ bool GUI::DoButton(int id, PairInt pos, PairInt size, std::string message)
 	return false;
 };
 
+void GUI::DoSlider(int id, PairInt pos, PairInt size, float& value, float max)
+{
+	//	Check for mouse interaction
+	if (MouseInRect(pos, size))
+	{
+		GUI::GetState()._HotItem = id;
+		if ((GUI::GetState()._ActiveItem == 0) && (GUI::GetState()._MouseDown))
+			GUI::GetState()._ActiveItem = id;
+	}
+
+	//	Calculate mouse progression along bar
+	if (GUI::GetState()._ActiveItem == id)
+	{
+		int yOffset = GUI::GetState()._MouseY - pos._Y;
+		if (yOffset < 0) 
+			yOffset = 0;
+		if (yOffset > size._Y)
+			yOffset = size._Y;
+		value = ((float)yOffset * max) / (float)size._Y;
+	}
+
+	int yPos = (size._Y * value) / max;
+
+	sf::RectangleShape background;
+	background.setSize(sf::Vector2f(size._X, size._Y));
+	background.setPosition(pos._X, pos._Y);
+	background.setFillColor(sf::Color(100, 100, 100));
+	GUI::GetTargetTexture().draw(background);
+
+	sf::RectangleShape bar;
+	bar.setSize(sf::Vector2f(size._X * 0.75f, size._X));
+	bar.setPosition(pos._X + (0.125f * size._X), (pos._Y + yPos) - (size._X / 2.f));
+	bar.setFillColor(sf::Color(200, 200, 200));
+	GUI::GetTargetTexture().draw(bar);
+
+};
+
 void GUI::DoFrame(int id, PairInt pos, PairInt size, sf::Color col)
 {
 	sf::RectangleShape Rect;
@@ -116,4 +153,10 @@ sf::RenderTexture& GUI::GetTargetTexture()
 GUIState& GUI::GetState()
 {
 	return _State;
+};
+
+//	Helper Functions
+bool MouseInRect(PairInt pos, PairInt size)
+{
+	return((GUI::GetState()._MouseX >= pos._X) && (GUI::GetState()._MouseY >= pos._Y) && (GUI::GetState()._MouseX < pos._X + size._X) && (GUI::GetState()._MouseY < pos._Y + size._Y));
 };

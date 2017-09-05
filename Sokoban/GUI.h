@@ -32,6 +32,7 @@ public:
 
 	static bool DoButton(int id, PairInt pos, PairInt size, std::string label);
 	static void DoFrame(int id, PairInt pos, PairInt size, sf::Color col);
+	static void DoSlider(int id, PairInt pos, PairInt size, float& value, float max);
 	
 	static void Draw();
 
@@ -48,6 +49,7 @@ private:
 	static GUIState _State;
 };
 
-
+//	Helper Functions	//
+bool MouseInRect(PairInt pos, PairInt size);
 
 #endif

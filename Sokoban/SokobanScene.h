@@ -27,6 +27,7 @@ private:
 	Level _Level;
 	ImageManager _ImgMan;
 
+	float _TestInt;
 };
 
 #endif

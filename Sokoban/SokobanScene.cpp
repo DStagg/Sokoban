@@ -27,11 +27,12 @@ void SokobanScene::Begin()
 	_Level.GetBlock()->GetGraphic().SetSprite(sf::Sprite(*_ImgMan.GetTexturePntr("Block")));
 	_Level.GetBlock()->GetGridPos().Set(2, 2);
 
+	_TestInt = 0.f;
 
 	//	GUI Stuff
 	sf::Font font;
 	font.loadFromFile("Roboto-Regular.ttf");
-	GUI::RegisterFont(f);
+	GUI::RegisterFont(font);
 	GUI::RegisterWindow(_Window);
 };
 void SokobanScene::End()
@@ -88,7 +89,9 @@ void SokobanScene::Update(float dt)
 	};
 
 	if (GUI::DoButton(GenID, PairInt(500, 0), PairInt(50, 50), "..."))
-		std::cout << "GUI Test" << std::endl;
+		std::cout << "GUI Test: " << _TestInt << std::endl;
+
+	GUI::DoSlider(GenID, PairInt(50, 50), PairInt(50, 300), _TestInt, 125);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return))
 	{
