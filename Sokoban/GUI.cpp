@@ -11,11 +11,27 @@ GUIState::GUIState(int x, int y, int hot, int active, bool down)
 
 /////////////////////
 
+void BasicGUIStyle::DrawButton(sf::RenderTexture& target, PairInt pos, PairInt size, std::string label)
+{
+
+};
+void BasicGUIStyle::DrawFrame(sf::RenderTexture& target, PairInt pos, PairInt size)
+{
+
+};
+void BasicGUIStyle::DrawSlider(sf::RenderTexture& target, PairInt pos, PairInt size, float& value, float max)
+{
+
+};
+
+/////////////////////
+
 PairInt GUI::_Size;
 sf::RenderWindow* GUI::_Window = 0;
 sf::Font GUI::_Font;
 sf::RenderTexture GUI::_TargetTexture;
 GUIState GUI::_State;
+GUIStyle* GUI::_Style = 0;
 
 void GUI::RegisterWindow(sf::RenderWindow* rw)
 {
@@ -27,6 +43,13 @@ void GUI::RegisterWindow(sf::RenderWindow* rw)
 void GUI::RegisterFont(sf::Font f)
 {
 	_Font = f;
+};
+
+void GUI::RegisterStyle(GUIStyle* style)
+{
+	if (_Style != 0)
+		delete _Style;
+	_Style = style;
 };
 
 void GUI::StartFrame()
@@ -54,6 +77,8 @@ bool GUI::DoButton(int id, PairInt pos, PairInt size, std::string message)
 	}
 
 	//	Render
+	if (GetStyle() != 0)
+		GetStyle()->DrawButton(GetTargetTexture(), pos, size, message);
 	sf::RectangleShape rect;
 	if ((GUI::GetState()._ActiveItem == id) && (GUI::GetState()._HotItem == id))
 	{
@@ -164,6 +189,13 @@ sf::RenderTexture& GUI::GetTargetTexture()
 GUIState& GUI::GetState()
 {
 	return _State;
+};
+
+GUIStyle* GUI::GetStyle()
+{
+	if (_Style == 0)
+		_Style = new BasicGUIStyle();
+	return _Style;
 };
 
 //	Helper Functions
