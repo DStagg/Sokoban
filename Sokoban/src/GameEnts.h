@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GridEnt.h"
+#include "SDLKeyboardTracker.h"
 
 class PlayerEnt : public GridEnt
 {

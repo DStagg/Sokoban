@@ -1,17 +1,18 @@
 #pragma once
 
-#include "SFMLScene.h"
+#include <SDL3/SDL.h>
+#include "SDLScene.h"
 #include "ImageManager.h"
 #include "Level.h"
 #include "GameEnts.h"
 #include "GUI.h"
 #include <iostream>
 
-class SokobanScene : public SFMLScene
+class SokobanScene : public SDLScene
 {
 public:
 
-	SokobanScene(sf::RenderWindow* rw);
+	SokobanScene(SDL_Renderer* renderer);
 	~SokobanScene();
 
 	void Begin();

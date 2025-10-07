@@ -37,6 +37,7 @@
     <ClCompile Include="src\core\Random.cpp" />
     <ClCompile Include="src\core\Scene.cpp" />
     <ClCompile Include="src\core\Service.cpp" />
+    <ClCompile Include="src\SDLKeyboardTracker.cpp" />
     <ClCompile Include="src\SokobanScene.cpp" />
     <ClCompile Include="src\core\Utility.cpp" />
   </ItemGroup>
@@ -59,6 +60,7 @@
     <ClInclude Include="src\core\Random.h" />
     <ClInclude Include="src\core\Scene.h" />
     <ClInclude Include="src\core\Service.h" />
+    <ClInclude Include="src\SDLKeyboardTracker.h" />
     <ClInclude Include="src\SDLScene.h" />
     <ClInclude Include="src\SokobanScene.h" />
     <ClInclude Include="src\Tile.h" />

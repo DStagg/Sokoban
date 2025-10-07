@@ -89,6 +89,9 @@
     <ClCompile Include="ext\Timer.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\SDLKeyboardTracker.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\BinaryFile.h">
@@ -155,6 +158,7 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="ext\Timer.h" />
+    <ClInclude Include="src\SDLKeyboardTracker.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ToDo.txt" />

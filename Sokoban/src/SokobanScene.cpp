@@ -1,6 +1,6 @@
 #include "SokobanScene.h"
 
-SokobanScene::SokobanScene(sf::RenderWindow* rw) : SFMLScene(rw)
+SokobanScene::SokobanScene(SDL_Renderer* renderer) : SDLScene(renderer)
 {
 
 };
@@ -53,10 +53,10 @@ void SokobanScene::Update(float dt)
 {
 	GUI::StartFrame();
 
-	sf::Event Event;
-	while (_Window->pollEvent(Event))
+	SDL_Event e;
+	while (SDL_PollEvent(&e))
 	{
-		if (Event.type == sf::Event::Closed)
+		if (e.type == SDL_EVENT_QUIT)
 			GetManager()->Quit();
 		else if (Event.type == sf::Event::MouseMoved)
 		{
@@ -71,19 +71,24 @@ void SokobanScene::Update(float dt)
 		{
 			GUI::GetState()._MouseDown = false;
 		}
-		else if (Event.type == sf::Event::KeyPressed)
+		else if (e.type == SDL_EVENT_KEY_DOWN)
 		{
-			switch (Event.key.code)
+			PressKey(e.key.key);
+			switch (e.key.key)
 			{
-			case sf::Keyboard::Escape:
+			case SDLK_ESCAPE:
 				GetManager()->Quit();
 				break;
-			case sf::Keyboard::Return:
+			case SDLK_RETURN:
 				
 				break;
 			default:
 				break;
 			}
+		}
+		else if (e.type == SDL_EVENT_KEY_UP)
+		{
+			ReleaseKey(e.key.key);
 		}
 
 	};
@@ -93,7 +98,7 @@ void SokobanScene::Update(float dt)
 
 	GUI::DoSlider(GenID, PairInt(400, 50), PairInt(50, 300), _TestInt, 125);
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return))
+	if (IsKeyPressed(SDLK_RETURN))
 	{
 		std::cout << "GUI State:" << std::endl << "----------" << std::endl;
 		std::cout << "Hot: " << GUI::GetState()._HotItem << std::endl;
