@@ -1,14 +1,17 @@
 #pragma once
 
-#include "Service.h"
+#include <SDL3_mixer/SDL_mixer.h>
+#include "core/Service.h"
 #include <map>
-#include "SFML\Audio.hpp"
+#include <vector>
+#include <iostream>
 
-class SFMLAudio : public AudioService
+class SDLAudio : public AudioService
 {
 public:
 
-	SFMLAudio();
+	SDLAudio(MIX_Mixer* mix = nullptr);
+	~SDLAudio();
 
 	void PlaySFX(std::string id);
 	void PlayStream(std::string id);
@@ -22,7 +25,8 @@ public:
 
 protected:
 
-	std::vector<sf::Sound> _PlayingSFXs;
-	std::map<std::string, sf::SoundBuffer> _SFXs;
-	std::map<std::string, sf::Music> _Streams;
+	std::vector<MIX_Track*> _Tracks;
+	std::map<std::string, MIX_Audio*> _SFXs;
+	std::map<std::string, MIX_Audio*> _Music;
+	MIX_Mixer* _Mixer;
 };
