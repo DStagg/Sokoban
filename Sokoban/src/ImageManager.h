@@ -34,7 +34,7 @@ class ImageManager
 {
 public:
 
-	ImageManager(SDL_Renderer* renderer);
+	ImageManager(SDL_Renderer* renderer = nullptr);
 	~ImageManager();
 
 	bool LoadTextureFromFile(std::string tag, std::string filename);

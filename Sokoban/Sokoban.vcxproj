@@ -77,6 +77,20 @@
   <ItemGroup>
     <Font Include="res\Roboto-Regular.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Offline\SDL\VisualC\SDL\SDL.vcxproj">
+      <Project>{81ce8daf-ebb2-4761-8e45-b71abcca8c68}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Offline\SDL_image\VisualC\SDL_image.vcxproj">
+      <Project>{2bd5534e-00e2-4bea-ac96-d9a92ea24696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Offline\SDL_mixer\VisualC\SDL_mixer.vcxproj">
+      <Project>{f7e944b3-0815-40cd-b3e4-90b2a15b0e33}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Offline\SDL_ttf\VisualC\SDL_ttf.vcxproj">
+      <Project>{dddbd07d-dc76-4af6-8d02-3e2deb6ee255}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{69A9F25E-8005-4A47-8C03-D5C6B6309134}</ProjectGuid>
     <RootNamespace>Sokoban</RootNamespace>

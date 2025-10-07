@@ -11,20 +11,22 @@ SokobanScene::~SokobanScene()
 
 void SokobanScene::Begin()
 {
+	if (!_ImgMan) _ImgMan = new ImageManager(_Window);
+
 	//_ImgMan.LoadTextureFromFile("Tilesheet", "Tilesheet.png");
-	_ImgMan.LoadTextureFromFile("Player", "Player.png");
-	_ImgMan.LoadTextureFromFile("Block", "Block.png");
+	_ImgMan->LoadTextureFromFile("Player", "res/Player.png");
+	_ImgMan->LoadTextureFromFile("Block", "res/Block.png");
 
 	_Level.GenBoxMap(12, 12);
 	_Level.RefreshMapTexture(_Window);
 
 	//_Level.SetPlayer(new GridEnt(&_Level));
 	_Level.SetPlayer(new PlayerEnt(&_Level));
-	_Level.GetPlayer()->GetGraphic().SetSprite(Sprite(_ImgMan.GetTexturePntr("Player")));
+	_Level.GetPlayer()->GetGraphic().SetSprite(Sprite(_ImgMan->GetTexturePntr("Player")));
 	_Level.GetPlayer()->GetGridPos().Set(1, 1);
 
 	_Level.SetBlock(new GridEnt(&_Level));
-	_Level.GetBlock()->GetGraphic().SetSprite(Sprite(_ImgMan.GetTexturePntr("Block")));
+	_Level.GetBlock()->GetGraphic().SetSprite(Sprite(_ImgMan->GetTexturePntr("Block")));
 	_Level.GetBlock()->GetGridPos().Set(2, 2);
 
 	_TestInt = 0.f;
