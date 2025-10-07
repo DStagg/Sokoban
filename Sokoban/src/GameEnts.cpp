@@ -13,13 +13,13 @@ void PlayerEnt::Update(float dt)
 	{
 		_Timer = 0.f;
 		//	Movement
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		if (Keyboard::K()->SDLK_W)
 			TryMove(0, -1);
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		else if (Keyboard::K()->SDLK_S)
 			TryMove(0, 1);
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		else if (Keyboard::K()->SDLK_A)
 			TryMove(-1, 0);
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		else if (Keyboard::K()->SDLK_D)
 			TryMove(1, 0);
 	}
 
