@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Tile.h"
-#include "Grid.h"
-#include "SFML\Graphics.hpp"
+#include "core/Grid.h"
+#include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
 #include "GridEnt.h"
 
 class Level
@@ -26,8 +27,8 @@ public:
 
 	PairInt&			GetTileSize();
 
-	sf::Texture&		GetMapTexture();
-	void				RefreshMapTexture(sf::Texture* tilesheet);
+	SDL_Texture*		GetMapTexture();
+	void				RefreshMapTexture(SDL_Renderer* renderer);
 
 	void				GenBoxMap(int w, int h);
 
@@ -41,5 +42,6 @@ private:
 
 	PairInt				_TileSize = PairInt(32, 32);
 
-	sf::Texture			_MapTexture;
+	SDL_Texture*		_MapTexture;
+	SDL_Surface*		_Tilesheet;
 };

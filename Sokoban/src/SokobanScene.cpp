@@ -11,12 +11,12 @@ SokobanScene::~SokobanScene()
 
 void SokobanScene::Begin()
 {
-	_ImgMan.LoadTextureFromFile("Tilesheet", "Tilesheet.png");
+	//_ImgMan.LoadTextureFromFile("Tilesheet", "Tilesheet.png");
 	_ImgMan.LoadTextureFromFile("Player", "Player.png");
 	_ImgMan.LoadTextureFromFile("Block", "Block.png");
 
 	_Level.GenBoxMap(12, 12);
-	_Level.RefreshMapTexture(_ImgMan.GetTexturePntr("Tilesheet"));
+	_Level.RefreshMapTexture(_Window);
 
 	//_Level.SetPlayer(new GridEnt(&_Level));
 	_Level.SetPlayer(new PlayerEnt(&_Level));

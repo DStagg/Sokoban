@@ -2,11 +2,12 @@
 
 Level::Level()
 {
-
+	_Tilesheet = IMG_Load("res/Tilesheet.png");
+	if (!_Tilesheet) std::cout << "Failed to load tilesheet." << std::endl;
 };
 Level::~Level()
 {
-
+	SDL_DestroySurface(_Tilesheet);
 };
 
 void Level::SetPlayer(GridEnt* ge)
@@ -53,27 +54,37 @@ PairInt& Level::GetTileSize()
 	return _TileSize;
 };
 
-sf::Texture& Level::GetMapTexture()
+SDL_Texture* Level::GetMapTexture()
 {
 	return _MapTexture;
 };
 
-void Level::RefreshMapTexture(sf::Texture* tilesheet)
+void Level::RefreshMapTexture(SDL_Renderer* renderer)
 {
-	sf::Image img;
-	img.create(GetTileSize()._X * GetTileGrid().GetWidth(), GetTileSize()._Y * GetTileGrid().GetHeight());
-	sf::Image source = tilesheet->copyToImage();
-
+	SDL_DestroyTexture(_MapTexture);
+	SDL_Surface* canvas = SDL_CreateSurface(GetTileSize()._X * GetTileGrid().GetWidth(), GetTileSize()._Y * GetTileGrid().GetHeight(), SDL_PIXELFORMAT_RGBA8888);
+	
 	for (int x = 0; x < GetTileGrid().GetWidth(); x++)
 	{
 		for (int y = 0; y < GetTileGrid().GetHeight(); y++)
 		{
 			Tile tile = GetTile(x, y);
-			img.copy(source, x * GetTileSize()._X, y * GetTileSize()._Y, sf::IntRect(tile._SheetColumn * GetTileSize()._X, tile._SheetRow * GetTileSize()._Y, GetTileSize()._X, GetTileSize()._Y));
+			SDL_Rect dstrect;
+			dstrect.x = x * GetTileSize()._X;
+			dstrect.y = y * GetTileSize()._Y;
+			dstrect.w = GetTileSize()._X;
+			dstrect.h = GetTileSize()._Y;
+			SDL_Rect srcrect;
+			srcrect.x = tile._SheetColumn * GetTileSize()._X;
+			srcrect.y = tile._SheetRow * GetTileSize()._Y;
+			srcrect.w = GetTileSize()._X;
+			srcrect.h = GetTileSize()._Y;
+			SDL_BlitSurface(_Tilesheet, &srcrect, canvas, &dstrect);
 		}
 	}
 
-	_MapTexture.loadFromImage(img);
+	_MapTexture = SDL_CreateTextureFromSurface(renderer, canvas);
+	SDL_DestroySurface(canvas);
 };
 
 
