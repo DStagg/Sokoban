@@ -18,10 +18,10 @@ void GridEnt::Draw(SDL_Renderer* renderer)
 	SDL_FRect dstrect;
 	dstrect.x = GetPosition()._X;
 	dstrect.y = GetPosition()._Y;
-	dstrect.w = GetGraphic().GetSprPntr()->_SrcRect.w;
-	dstrect.h = GetGraphic().GetSprPntr()->_SrcRect.h;
-
-	SDL_RenderTexture(renderer, GetGraphic().GetSprPntr()->_Texture, &GetGraphic().GetSprPntr()->_SrcRect, &dstrect);
+	dstrect.w = GetGraphic().GetSprPntr()->_Texture->w;
+	dstrect.h = GetGraphic().GetSprPntr()->_Texture->h;
+	// TODO: currently, assuming that all gridents are a single static image. Need to account animations and update the _Sprite.SrcRect instead of calling NULL below
+	SDL_RenderTexture(renderer, GetGraphic().GetSprPntr()->_Texture, NULL, &dstrect);
 };
 
 bool GridEnt::Move(int dx, int dy)
