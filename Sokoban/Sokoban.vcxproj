@@ -59,7 +59,7 @@
     <ClInclude Include="src\core\Random.h" />
     <ClInclude Include="src\core\Scene.h" />
     <ClInclude Include="src\core\Service.h" />
-    <ClInclude Include="src\SFMLScene.h" />
+    <ClInclude Include="src\SDLScene.h" />
     <ClInclude Include="src\SokobanScene.h" />
     <ClInclude Include="src\Tile.h" />
     <ClInclude Include="src\core\Utility.h" />

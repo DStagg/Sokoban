@@ -133,7 +133,7 @@
     <ClInclude Include="src\SokobanScene.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="src\SFMLScene.h">
+    <ClInclude Include="src\SDLScene.h">
       <Filter>Core\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Tile.h">
