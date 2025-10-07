@@ -71,10 +71,15 @@ void BasicEnt::Update(float dt)
 	GetSize().Set((float)GetGraphic().GetCurrentFrame()._Width, (float)GetGraphic().GetCurrentFrame()._Height);
 };
 
-void BasicEnt::Draw(sf::RenderWindow* rw)
+void BasicEnt::Draw(SDL_Renderer* renderer)
 {
-	GetGraphic().GetSprPntr()->setPosition(GetPosition()._X , GetPosition()._Y);
-	rw->draw(*GetGraphic().GetSprPntr());
+	SDL_FRect dstrect;
+	dstrect.x = GetPosition()._X;
+	dstrect.y = GetPosition()._Y;
+	dstrect.w = GetGraphic().GetSprPntr()->_SrcRect.w;
+	dstrect.h = GetGraphic().GetSprPntr()->_SrcRect.h;
+
+	SDL_RenderTexture(renderer, GetGraphic().GetSprPntr()->_Texture, &GetGraphic().GetSprPntr()->_SrcRect, &dstrect);
 };
 
 
