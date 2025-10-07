@@ -20,20 +20,20 @@ void SokobanScene::Begin()
 
 	//_Level.SetPlayer(new GridEnt(&_Level));
 	_Level.SetPlayer(new PlayerEnt(&_Level));
-	_Level.GetPlayer()->GetGraphic().SetSprite(sf::Sprite(*_ImgMan.GetTexturePntr("Player")));
+	_Level.GetPlayer()->GetGraphic().SetSprite(Sprite(_ImgMan.GetTexturePntr("Player")));
 	_Level.GetPlayer()->GetGridPos().Set(1, 1);
 
 	_Level.SetBlock(new GridEnt(&_Level));
-	_Level.GetBlock()->GetGraphic().SetSprite(sf::Sprite(*_ImgMan.GetTexturePntr("Block")));
+	_Level.GetBlock()->GetGraphic().SetSprite(Sprite(_ImgMan.GetTexturePntr("Block")));
 	_Level.GetBlock()->GetGridPos().Set(2, 2);
 
 	_TestInt = 0.f;
 
 	//	GUI Stuff
-	sf::Font font;
-	font.loadFromFile("Roboto-Regular.ttf");
-	GUI::RegisterFont(font);
-	GUI::RegisterWindow(_Window);
+	//sf::Font font;
+	//font.loadFromFile("Roboto-Regular.ttf");
+	//GUI::RegisterFont(font);
+	//GUI::RegisterWindow(_Window);
 };
 void SokobanScene::End()
 {
@@ -51,14 +51,14 @@ void SokobanScene::Resume()
 
 void SokobanScene::Update(float dt)
 {
-	GUI::StartFrame();
+	//GUI::StartFrame();
 
 	SDL_Event e;
 	while (SDL_PollEvent(&e))
 	{
 		if (e.type == SDL_EVENT_QUIT)
 			GetManager()->Quit();
-		else if (Event.type == sf::Event::MouseMoved)
+	/*	else if (Event.type == sf::Event::MouseMoved)
 		{
 			GUI::GetState()._MouseX = sf::Mouse::getPosition(*_Window).x;
 			GUI::GetState()._MouseY = sf::Mouse::getPosition(*_Window).y;
@@ -70,7 +70,7 @@ void SokobanScene::Update(float dt)
 		else if ((Event.type == sf::Event::MouseButtonReleased) && (Event.mouseButton.button == sf::Mouse::Left))
 		{
 			GUI::GetState()._MouseDown = false;
-		}
+		}*/
 		else if (e.type == SDL_EVENT_KEY_DOWN)
 		{
 			PressKey(e.key.key);
@@ -92,7 +92,7 @@ void SokobanScene::Update(float dt)
 		}
 
 	};
-
+/*
 	if (GUI::DoButton(GenID, PairInt(500, 50), PairInt(50, 50), "..."))
 		std::cout << "GUI Test: " << _TestInt << std::endl;
 
@@ -106,26 +106,30 @@ void SokobanScene::Update(float dt)
 		std::cout << "Mouse: " << GUI::GetState()._MouseX << "," << GUI::GetState()._MouseY << std::endl;
 		std::cout << "MouseDown: " << GUI::GetState()._MouseDown << std::endl << std::endl;
 	}
-
+	*/
 	if (_Level.GetPlayer() != 0 )
 		_Level.GetPlayer()->Update(dt);
 
 	if (_Level.GetBlock() != 0)
 		_Level.GetBlock()->Update(dt);
 
-	GUI::EndFrame();
+	//GUI::EndFrame();
 };
 
 void SokobanScene::DrawScreen()
 {
-	sf::Sprite map(_Level.GetMapTexture());
-	_Window->draw(map);
-
+	Sprite map(_Level.GetMapTexture());
+	SDL_FRect dstrect;
+	dstrect.x = dstrect.y = 0;
+	dstrect.w = map._Texture->w;
+	dstrect.h = map._Texture->h;
+	SDL_RenderTexture(_Window, map._Texture, NULL, &dstrect);
+	
 	if (_Level.GetPlayer() != 0)
 		_Level.GetPlayer()->Draw(_Window);
 
 	if (_Level.GetBlock() != 0)
 		_Level.GetBlock()->Draw(_Window);
 
-	GUI::Draw();
+	//GUI::Draw();
 };

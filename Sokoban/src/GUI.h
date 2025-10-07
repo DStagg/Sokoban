@@ -2,10 +2,11 @@
 
 #define GenID (__LINE__)
 
-#include "Pair.h"
+#include "core/Pair.h"
 #include <string>
-#include "SFML\Graphics.hpp"
-
+#include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
+/*
 struct GUIState
 {
 	GUIState(int x = 0, int y = 0, int hot = 0, int active = 0, bool down = false);
@@ -23,8 +24,8 @@ class GUI
 {
 public:
 
-	static void RegisterWindow(sf::RenderWindow* rw);
-	static void RegisterFont(sf::Font f);
+	static void RegisterWindow(SDL_Renderer* renderer);
+	static void RegisterFont(TTF_Font* f);
 
 	static void StartFrame();
 	static void EndFrame();
@@ -42,8 +43,8 @@ public:
 private:
 
 	static PairInt _Size;			
-	static sf::RenderWindow* _Window;
-	static sf::Font _Font;
+	static SDL_Renderer* _Window;
+	static TTF_Font* _Font;
 	static sf::RenderTexture _TargetTexture;
 	static GUIState _State;
 };
@@ -51,3 +52,4 @@ private:
 //	Helper Functions	//
 bool MouseInRect(PairInt pos, PairInt size);
 
+*/

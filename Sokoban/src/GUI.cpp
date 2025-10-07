@@ -1,5 +1,5 @@
 #include "GUI.h"
-
+/*
 GUIState::GUIState(int x, int y, int hot, int active, bool down)
 {
 	_MouseX = x;
@@ -12,19 +12,21 @@ GUIState::GUIState(int x, int y, int hot, int active, bool down)
 /////////////////////
 
 PairInt GUI::_Size;
-sf::RenderWindow* GUI::_Window = 0;
-sf::Font GUI::_Font;
+SDL_Renderer* GUI::_Window = 0;
+TTF_Font* GUI::_Font = 0;
 sf::RenderTexture GUI::_TargetTexture;
 GUIState GUI::_State;
 
-void GUI::RegisterWindow(sf::RenderWindow* rw)
+void GUI::RegisterWindow(SDL_Renderer* renderer)
 {
-	_Window = rw;
-	_Size.Set((int)rw->getSize().x, (int)rw->getSize().y);
-	_TargetTexture.create((int)rw->getSize().x, (int)rw->getSize().y);
+	_Window = renderer;
+	int w, h;
+	SDL_GetRenderOutputSize(renderer, &w, &h);
+	_Size.Set(w,h);
+	_TargetTexture.create(w,h);
 };
 
-void GUI::RegisterFont(sf::Font f)
+void GUI::RegisterFont(TTF_Font* f)
 {
 	_Font = f;
 };
@@ -171,4 +173,4 @@ GUIState& GUI::GetState()
 bool MouseInRect(PairInt pos, PairInt size)
 {
 	return((GUI::GetState()._MouseX >= pos._X) && (GUI::GetState()._MouseY >= pos._Y) && (GUI::GetState()._MouseX < pos._X + size._X) && (GUI::GetState()._MouseY < pos._Y + size._Y));
-};
+};*/
