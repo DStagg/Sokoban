@@ -19,81 +19,91 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AABB.cpp" />
-    <ClCompile Include="AudioService.cpp" />
-    <ClCompile Include="BinaryFile.cpp" />
-    <ClCompile Include="BinarySave.cpp" />
-    <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="EntityComponents.cpp" />
-    <ClCompile Include="GameEnts.cpp" />
-    <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="GridEnt.cpp" />
-    <ClCompile Include="GUI.cpp" />
-    <ClCompile Include="ImageManager.cpp" />
-    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="ext\Timer.cpp" />
+    <ClCompile Include="src\core\AABB.cpp" />
+    <ClCompile Include="src\AudioService.cpp" />
+    <ClCompile Include="src\core\BinaryFile.cpp" />
+    <ClCompile Include="src\core\BinarySave.cpp" />
+    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\EntityComponents.cpp" />
+    <ClCompile Include="src\GameEnts.cpp" />
+    <ClCompile Include="src\core\Grid.cpp" />
+    <ClCompile Include="src\GridEnt.cpp" />
+    <ClCompile Include="src\GUI.cpp" />
+    <ClCompile Include="src\ImageManager.cpp" />
+    <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MenuList.cpp" />
-    <ClCompile Include="Random.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="Service.cpp" />
-    <ClCompile Include="SokobanScene.cpp" />
-    <ClCompile Include="Utility.cpp" />
+    <ClCompile Include="src\MenuList.cpp" />
+    <ClCompile Include="src\core\Random.cpp" />
+    <ClCompile Include="src\core\Scene.cpp" />
+    <ClCompile Include="src\core\Service.cpp" />
+    <ClCompile Include="src\SokobanScene.cpp" />
+    <ClCompile Include="src\core\Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AABB.h" />
-    <ClInclude Include="AudioService.h" />
-    <ClInclude Include="BinaryFile.h" />
-    <ClInclude Include="BinarySave.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="EntityComponents.h" />
-    <ClInclude Include="GameEnts.h" />
-    <ClInclude Include="Grid.h" />
-    <ClInclude Include="GridEnt.h" />
-    <ClInclude Include="GUI.h" />
-    <ClInclude Include="ImageManager.h" />
-    <ClInclude Include="Level.h" />
-    <ClInclude Include="MenuList.h" />
-    <ClInclude Include="Pair.h" />
-    <ClInclude Include="Random.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="Service.h" />
-    <ClInclude Include="SFMLScene.h" />
-    <ClInclude Include="SokobanScene.h" />
-    <ClInclude Include="Tile.h" />
-    <ClInclude Include="Utility.h" />
+    <ClInclude Include="ext\Timer.h" />
+    <ClInclude Include="src\core\AABB.h" />
+    <ClInclude Include="src\AudioService.h" />
+    <ClInclude Include="src\core\BinaryFile.h" />
+    <ClInclude Include="src\core\BinarySave.h" />
+    <ClInclude Include="src\Entity.h" />
+    <ClInclude Include="src\EntityComponents.h" />
+    <ClInclude Include="src\GameEnts.h" />
+    <ClInclude Include="src\core\Grid.h" />
+    <ClInclude Include="src\GridEnt.h" />
+    <ClInclude Include="src\GUI.h" />
+    <ClInclude Include="src\ImageManager.h" />
+    <ClInclude Include="src\Level.h" />
+    <ClInclude Include="src\MenuList.h" />
+    <ClInclude Include="src\core\Pair.h" />
+    <ClInclude Include="src\core\Random.h" />
+    <ClInclude Include="src\core\Scene.h" />
+    <ClInclude Include="src\core\Service.h" />
+    <ClInclude Include="src\SFMLScene.h" />
+    <ClInclude Include="src\SokobanScene.h" />
+    <ClInclude Include="src\Tile.h" />
+    <ClInclude Include="src\core\Utility.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ToDo.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Block.png" />
+    <Image Include="res\Player.png" />
+    <Image Include="res\Tilesheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\Roboto-Regular.ttf" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{69A9F25E-8005-4A47-8C03-D5C6B6309134}</ProjectGuid>
     <RootNamespace>Sokoban</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -121,7 +131,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\User\Documents\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Cpp\Offline\SDL_ttf\include;C:\Cpp\Offline\SDL_mixer\include;C:\Cpp\Offline\SDL_image\include;C:\Cpp\Offline\SDL\include;C:\Users\User\Documents\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_DEBUG_</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Users\User\Documents\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -133,6 +144,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Cpp\Offline\SDL_ttf\include;C:\Cpp\Offline\SDL_mixer\include;C:\Cpp\Offline\SDL_image\include;C:\Cpp\Offline\SDL\include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_DEBUG_</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,7 +155,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\User\Documents\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Cpp\Offline\SDL_ttf\include;C:\Cpp\Offline\SDL_mixer\include;C:\Cpp\Offline\SDL_image\include;C:\Cpp\Offline\SDL\include;C:\Users\User\Documents\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_RELEASE_</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -158,6 +172,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Cpp\Offline\SDL_ttf\include;C:\Cpp\Offline\SDL_mixer\include;C:\Cpp\Offline\SDL_image\include;C:\Cpp\Offline\SDL\include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_RELEASE_</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
