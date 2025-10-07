@@ -1,5 +1,4 @@
-#ifndef PAIR_H
-#define PAIR_H
+#pragma once
 
 template <class T>
 struct Pair
@@ -25,5 +24,3 @@ struct Pair
 
 typedef Pair<float> PairFloat;
 typedef Pair<int> PairInt;
-
-#endif

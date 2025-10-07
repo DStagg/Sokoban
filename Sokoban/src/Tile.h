@@ -1,5 +1,4 @@
-#ifndef TILE_H
-#define TILE_H
+#pragma once
 
 #include <string>
 
@@ -21,5 +20,3 @@ struct Tile
 	bool _Solid = false;		//	Does it let objects through?
 	bool _Opaque = false;		//	Does it let light through?
 };
-
-#endif

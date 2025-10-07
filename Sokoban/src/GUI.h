@@ -1,5 +1,4 @@
-#ifndef GUI_H
-#define GUI_H
+#pragma once
 
 #define GenID (__LINE__)
 
@@ -52,4 +51,3 @@ private:
 //	Helper Functions	//
 bool MouseInRect(PairInt pos, PairInt size);
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef ENTITY_H
-#define ENTITY_H
+#pragma once
 
 #include <vector>
 #include <algorithm>
@@ -90,5 +89,3 @@ private:
 
 	std::vector<Entity*> _Entities;
 };
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef SOKOBANSCENE_H
-#define SOKOBANSCENE_H
+#pragma once
 
 #include "SFMLScene.h"
 #include "ImageManager.h"
@@ -29,5 +28,3 @@ private:
 
 	float _TestInt;
 };
-
-#endif

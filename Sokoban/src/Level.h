@@ -1,5 +1,4 @@
-#ifndef LEVEL_H
-#define LEVEL_H
+#pragma once
 
 #include "Tile.h"
 #include "Grid.h"
@@ -44,5 +43,3 @@ private:
 
 	sf::Texture			_MapTexture;
 };
-
-#endif

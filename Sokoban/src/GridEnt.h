@@ -1,5 +1,4 @@
-#ifndef GRIDENT_H
-#define GRIDENT_H
+#pragma once
 
 #include "Entity.h"
 
@@ -22,5 +21,3 @@ private:
 	PairInt		_GridPos;
 
 };
-
-#endif

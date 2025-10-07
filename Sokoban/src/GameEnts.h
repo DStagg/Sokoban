@@ -1,5 +1,4 @@
-#ifndef GAMEENTS_H
-#define GAMEENTS_H
+#pragma once
 
 #include "GridEnt.h"
 
@@ -30,5 +29,3 @@ private:
 
 
 };
-
-#endif

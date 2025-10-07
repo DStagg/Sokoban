@@ -1,5 +1,4 @@
-#ifndef SFMLSCENE_H
-#define SFMLSCENE_H
+#pragma once
 
 #include "Scene.h"
 #include "SFML\Graphics.hpp"
@@ -19,5 +18,3 @@ protected:
 
 	sf::RenderWindow* _Window;
 };
-
-#endif
